@@ -8,7 +8,6 @@
             android:topRightRadius="20dp"
             android:bottomRightRadius="20dp"
             android:radius="10dp"/>
-        <stroke android:width="10dp" android:color="#D0CFCC" />
     </shape>
 </item>
 </selector>
