@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="58dp" />
+            tools:layout_editor_absoluteY="58dp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -40,12 +40,15 @@
         android:hint="Contraseña"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+       app:passwordToggleEnabled="true">
+      <!--app:endIconMode="password_toggle" puede ir por passwordtoggleenabled -->
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passwordText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -66,7 +69,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:strokeColor="@color/colorBlack"
-        app:strokeWidth="0.5dp" />
+        app:strokeWidth="0.5dp"
+        android:enabled="false"/>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
 
@@ -84,7 +88,7 @@
             android:layout_gravity="bottom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
