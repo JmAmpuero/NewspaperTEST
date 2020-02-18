@@ -18,7 +18,8 @@
         android:hint="Correo Electrónico"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:errorEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emailText"
@@ -41,9 +42,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-       app:passwordToggleEnabled="true"
-        app:errorEnabled="true"
-        app:errorIconDrawable="@null">
+        app:passwordToggleEnabled="true"
+        app:errorEnabled="true">
       <!--app:endIconMode="password_toggle" puede ir por passwordtoggleenabled -->
 
         <com.google.android.material.textfield.TextInputEditText

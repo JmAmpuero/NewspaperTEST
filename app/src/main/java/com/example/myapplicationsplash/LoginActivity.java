@@ -23,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText email;
     EditText password;
     TextInputLayout textInputLayoutPassword;
+    TextInputLayout textInputLayoutEmail;
 
     private static final Pattern Password_Pattern =
             Pattern.compile("^" +
@@ -48,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         //  Toast.makeText(getApplicationContext(),"Hola Juan",Toast.LENGTH_SHORT).show();
 
         textInputLayoutPassword = findViewById(R.id.textInputLayout3);
+        textInputLayoutEmail = findViewById(R.id.textInputLayout1);
 
         button = findViewById(R.id.buttonLogin);
 
@@ -72,7 +74,8 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                validateEmailAdress(email);
+                //validateEmailAdress(email);
+                validateEmail();
             }
 
             @Override
@@ -89,8 +92,8 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                validatePassword(password);
+               //validatePassword(email);
+                validatePass();
             }
 
             @Override
@@ -115,19 +118,50 @@ public class LoginActivity extends AppCompatActivity {
 
         }
 
+        private void validateEmail(){
+
+        String email= textInputLayoutEmail.getEditText().getText().toString().trim();
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+
+            textInputLayoutEmail.setError("Ingrese un correo válido");
+            textInputLayoutEmail.setErrorIconDrawable(null);
+
+        }else{
+
+            textInputLayoutEmail.setErrorEnabled(false);
+        }
+        }
+
         private boolean validatePassword(EditText password){
 
         String passwordInput = password.getText().toString().trim();
 
         if (!Password_Pattern.matcher(passwordInput).matches()) {
-                //password.setError("La contraseña es muy débil");
-            textInputLayoutPassword.setError("La contraseña es muy débil");
+                password.setError("La contraseña es muy débil");
+            //textInputLayoutPassword.setError("La contraseña es muy débil");
                 return false;
             } else {
             //Toast.makeText(getApplicationContext(), "Password segura", Toast.LENGTH_SHORT).show();
             button.setEnabled(true);
             return true;
             }
+        }
+
+        private void validatePass(){
+
+        String pass = textInputLayoutPassword.getEditText().getText().toString().trim();
+
+        if (!Password_Pattern.matcher(pass).matches()){
+            textInputLayoutPassword.setError("La contraseña es muy débil");
+            textInputLayoutPassword.setErrorIconDrawable(null);
+            button.setEnabled(false);
+
+        }else{
+           textInputLayoutPassword.setErrorEnabled(false);
+            button.setEnabled(true);
+
+        }
+
         }
 
 
