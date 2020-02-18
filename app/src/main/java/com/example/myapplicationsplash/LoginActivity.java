@@ -22,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     Button button;
     EditText email;
     EditText password;
+    TextInputLayout textInputLayoutPassword;
 
     private static final Pattern Password_Pattern =
             Pattern.compile("^" +
@@ -45,6 +46,8 @@ public class LoginActivity extends AppCompatActivity {
 
         //ejemplo de toast
         //  Toast.makeText(getApplicationContext(),"Hola Juan",Toast.LENGTH_SHORT).show();
+
+        textInputLayoutPassword = findViewById(R.id.textInputLayout3);
 
         button = findViewById(R.id.buttonLogin);
 
@@ -117,7 +120,8 @@ public class LoginActivity extends AppCompatActivity {
         String passwordInput = password.getText().toString().trim();
 
         if (!Password_Pattern.matcher(passwordInput).matches()) {
-                password.setError("La contraseña es muy débil");
+                //password.setError("La contraseña es muy débil");
+            textInputLayoutPassword.setError("La contraseña es muy débil");
                 return false;
             } else {
             //Toast.makeText(getApplicationContext(), "Password segura", Toast.LENGTH_SHORT).show();

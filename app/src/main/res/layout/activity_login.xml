@@ -41,7 +41,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-       app:passwordToggleEnabled="true">
+       app:passwordToggleEnabled="true"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@null">
       <!--app:endIconMode="password_toggle" puede ir por passwordtoggleenabled -->
 
         <com.google.android.material.textfield.TextInputEditText
