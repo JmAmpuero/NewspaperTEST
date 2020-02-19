@@ -30,8 +30,6 @@ public class LoginActivity extends AppCompatActivity {
                     "(?=.*[0-9])" +         //al menos un número
                     "(?=.*[a-z])" +         //al menos 1 minúscula
                     "(?=.*[A-Z])" +         //al menos 1 mayúscula
-                    "(?=.*[a-zA-Z])" +      //cualquier letra
-                    //"(?=.*[@#$%^&+=])" +    //al menos un caracter especial
                     "(?=\\S+$)" +           //sin espacios
                     ".{6,}" +               //al menos 6 caracteres
                     "$");
@@ -44,20 +42,14 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
-        //ejemplo de toast
-        //  Toast.makeText(getApplicationContext(),"Hola Juan",Toast.LENGTH_SHORT).show();
-
         textInputLayoutPassword = findViewById(R.id.textInputLayout3);
         textInputLayoutEmail = findViewById(R.id.textInputLayout1);
 
         button = findViewById(R.id.buttonLogin);
 
         email = findViewById(R.id.emailText);
-        //email.getText().toString();
 
         password = findViewById(R.id.passwordText);
-        //password.getText().toString();
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-               //validatePassword(email);
+                //validatePassword(password);
                 validatePass();
             }
 
@@ -108,7 +100,6 @@ public class LoginActivity extends AppCompatActivity {
 
             if(!emailInput.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()){
 
-               //Toast.makeText(getApplicationContext(), "Email correcto ", Toast.LENGTH_SHORT).show();
                 return true;
 
             }else{
@@ -138,10 +129,8 @@ public class LoginActivity extends AppCompatActivity {
 
         if (!Password_Pattern.matcher(passwordInput).matches()) {
                 password.setError("La contraseña es muy débil");
-            //textInputLayoutPassword.setError("La contraseña es muy débil");
                 return false;
             } else {
-            //Toast.makeText(getApplicationContext(), "Password segura", Toast.LENGTH_SHORT).show();
             button.setEnabled(true);
             return true;
             }
