@@ -2,6 +2,7 @@ package com.example.myapplicationsplash;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -12,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import java.util.regex.Matcher;
+import androidx.appcompat.widget.Toolbar;
+
 
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -24,6 +27,8 @@ public class LoginActivity extends AppCompatActivity {
     EditText password;
     TextInputLayout textInputLayoutPassword;
     TextInputLayout textInputLayoutEmail;
+
+    Toolbar toolbar;
 
     private static final Pattern Password_Pattern =
             Pattern.compile("^" +
@@ -41,6 +46,18 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        toolbar = findViewById(R.id.toolbar2);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Ingresar");
+
+       toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               openMainActivity();
+           }
+       });
 
         textInputLayoutPassword = findViewById(R.id.textInputLayout3);
         textInputLayoutEmail = findViewById(R.id.textInputLayout1);
@@ -152,6 +169,12 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         }
+
+    public void openMainActivity(){
+
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
+    }
 
 
 }
